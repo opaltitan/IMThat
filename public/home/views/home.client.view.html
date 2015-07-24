@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<section ng-controller="HomeController">
+    <div data-ng-show="!authentication.user">
+        <a href="/signup">Sign up</a>
+        <a href="/signin">Sign in</a>
+    </div>
+    <div data-ng-show="authentication.user">
+        <h1>Hello <span data-ng-bind="authentication.user.firstName"></span></h1>
+        <a href="/signout">Sign out</a>
+        <ul>
+            <li><a href="/#!/chat">Chat</a></li>
+        </ul>
+    </div>
+</section>
+</body>
+</html>
