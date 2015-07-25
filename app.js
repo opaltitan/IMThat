@@ -55,6 +55,7 @@ app.use(apassport.session());
 
 require('./routes/index.server.routes.js')(app);
 require('./routes/users.server.routes.js')(app);
+require('./routes/room.server.routes.js')(app);
 app.use(express.static('./public'));
 require('./config/socketio')(server, io, mongoStore);
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));

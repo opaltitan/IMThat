@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css">
+</head>
+<body>
+
+<section data-ng-controller="RoomController" data-ng-init="findOne()">
+    <h1 data-ng-bind="room.roomname"></h1>
+    <div>
+        <a href="/#!/rooms/{{room._id}}/edit">edit</a>
+        <a href="/#!/" data-ng-click="delete();">delete</a>
+    </div>
+    <small>
+        <em>Posted on</em>
+        <em data-ng-bind="room.created | date:'mediumDate'"></em>
+        <em>by</em>
+        <em data-ng-bind="room.createdUser.firstName"></em>
+    </small>
+</section>
+
+</body>
+</html>

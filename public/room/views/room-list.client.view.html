@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css">
+</head>
+<body>
+
+<section data-ng-controller="RoomController" data-ng-init="find()">
+    <h1>Rooms</h1>
+    <div>
+        <a href="/#!/rooms/create">Create Room</a>
+    </div>
+    <br>
+    <ul>
+        <li data-ng-repeat="room in rooms">
+            <a data-ng-href="#!/rooms/{{room._id}}" data-ng-bind="room.roomname"></a>
+            <br>
+            <small data-ng-bind="room.created | date:'medium'"></small>
+            <small>/</small>
+            <small data-ng-bind="room.createdUser.firstName"></small>
+        </li>
+    </ul>
+    <div data-ng-hide="!rooms || rooms.length">
+        No rooms yet, why don't you <a href="/#!/rooms/create">create one</a>?
+    </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css">
+    <title>Edit Chat Room Name</title>
+</head>
+<body>
+
+<section data-ng-controller="RoomController" data-ng-init="findOne()">
+    <h1>Edit room</h1>
+    <form data-ng-submit="update()" novalidate>
+        <div>
+            <label for="roomname">Room Name</label>
+            <div>
+                <input type="text" data-ng-model="room.roomname" id="roomname" required>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Update">
+        </div>
+        <div data-ng-show="error">
+            <strong data-ng-bind="error"></strong>
+        </div>
+    </form>
+</section>
+
+</body>
+</html>
