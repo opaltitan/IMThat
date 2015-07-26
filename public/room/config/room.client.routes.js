@@ -15,6 +15,9 @@ angular.module('rooms').config(['$routeProvider',
             }).
             when('/rooms/:roomId/edit', {
                 templateUrl: 'room/views/room-edit.client.view.html'
+            }).
+            when('/rooms/:roomId/chat', {
+                templateUrl: 'chat/views/chat.client.view.html'
             });
     }
 ]);

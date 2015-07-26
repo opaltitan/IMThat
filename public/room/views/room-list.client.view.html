@@ -14,11 +14,12 @@
     <br>
     <ul>
         <li data-ng-repeat="room in rooms">
-            <a data-ng-href="#!/rooms/{{room._id}}" data-ng-bind="room.roomname"></a>
+            <a data-ng-href="#!/rooms/{{room._id}}/chat" data-ng-bind="room.roomname"></a>
             <br>
             <small data-ng-bind="room.created | date:'medium'"></small>
             <small>/</small>
             <small data-ng-bind="room.createdUser.firstName"></small>
+            <a data-ng-href="#!/rooms/{{room._id}}">edit</a>
         </li>
     </ul>
     <div data-ng-hide="!rooms || rooms.length">

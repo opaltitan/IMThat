@@ -1,8 +1,8 @@
 /**
  * Created by Justin on 7/24/2015.
  */
-angular.module('rooms').controller('RoomController', ['$scope', '$routeParams', '$location', 'Authentication', 'Rooms',
-    function($scope, $routeParams, $location, Authentication, Rooms){
+angular.module('rooms').controller('RoomController', ['$scope', '$routeParams', '$location', 'Authentication', 'Rooms', 'Socket',
+    function($scope, $routeParams, $location, Authentication, Rooms, Socket){
         $scope.authentication = Authentication;
 
         $scope.create = function(){
@@ -48,5 +48,24 @@ angular.module('rooms').controller('RoomController', ['$scope', '$routeParams', 
                 });
             }
         };
+
+        $scope.messages = [];
+        Socket.on('chatMessage', function(message){
+            if(message.roomname === $scope.room.roomname) {
+                $scope.messages.push(message);
+            }
+        });
+        $scope.sendMessage = function(){
+            var message = {
+                text: this.messageText,
+                roomname: this.room.roomname
+            };
+            Socket.emit('chatMessage', message);
+            this.messageText = '';
+        };
+        $scope.$on('$destroy', function(){
+            Socket.removeListener('chatMessage');
+        });
+
     }
 ]);

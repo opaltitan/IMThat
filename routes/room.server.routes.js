@@ -14,5 +14,7 @@ module.exports = function(app){
         .get(rooms.read)
         .put(users.requiresLogin, rooms.update)
         .delete(users.requiresLogin, rooms.delete);
+    app.route('/api/rooms/:roomId/chat')
+        .get(rooms.read);
     app.param('roomId', rooms.roomById);
 };

@@ -13,7 +13,6 @@ module.exports = function(io, socket){
         message.type = 'message';
         message.created = Date.now();
         message.username = socket.request.user.username;
-
         io.emit('chatMessage', message);
     });
     socket.on('disconnect', function(){

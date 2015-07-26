@@ -5,7 +5,8 @@
     <title></title>
 </head>
 <body>
-    <section data-ng-controller="ChatController">
+    <section data-ng-controller="RoomController" data-ng-init="findOne()">
+        <h1 data-ng-bind="room.roomname"></h1>
         <div data-ng-repeat="message in messages" data-ng-switch="message.type">
             <strong data-ng-switch-when='status'>
                 <span data-ng-bind="message.created | date: 'mediumTime'"></span>
@@ -24,6 +25,10 @@
             <input type="text" data-ng-model="messageText">
             <input type="submit">
         </form>
+        <br><br>
+        <div>
+            <a href="/#!/rooms/">Return to Rooms</a>
+        </div>
     </section>
 </body>
 </html>
