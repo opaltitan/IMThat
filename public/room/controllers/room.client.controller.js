@@ -1,13 +1,16 @@
 /**
  * Created by Justin on 7/24/2015.
  */
-angular.module('rooms').controller('RoomController', ['$scope', '$routeParams', '$location', 'Authentication', 'Rooms', 'Socket',
-    function($scope, $routeParams, $location, Authentication, Rooms, Socket){
+angular.module('rooms').controller('RoomController', ['$scope', '$routeParams', '$location', 'Authentication', 'Rooms', 'Socket', 'Users',
+    function($scope, $routeParams, $location, Authentication, Rooms, Socket, Users){
         $scope.authentication = Authentication;
+        $scope.users = Users.query();
 
         $scope.create = function(){
             var room = new Rooms({
-                roomname: this.roomname
+                roomname: this.roomname,
+                privacyDesignation: this.privacyDesignation,
+                member: this.member
             });
             room.$save(function(response){
                 $location.path('rooms/' + response._id);
@@ -18,6 +21,7 @@ angular.module('rooms').controller('RoomController', ['$scope', '$routeParams', 
 
         $scope.find = function() {
             $scope.rooms = Rooms.query();
+           // $scope.users = Users.list();
         };
         $scope.findOne = function() {
             $scope.room = Rooms.get({
@@ -26,6 +30,7 @@ angular.module('rooms').controller('RoomController', ['$scope', '$routeParams', 
         };
 
         $scope.update = function(){
+            $scope.room.members.push($scope.room.member_new);
             $scope.room.$update(function(){
                 $location.path('rooms/' + $scope.room._id);
             }, function(errorResponse){
@@ -58,7 +63,7 @@ angular.module('rooms').controller('RoomController', ['$scope', '$routeParams', 
         $scope.sendMessage = function(){
             var message = {
                 text: this.messageText,
-                roomname: this.room.roomname
+                roomname: $scope.room.roomname
             };
             Socket.emit('chatMessage', message);
             this.messageText = '';

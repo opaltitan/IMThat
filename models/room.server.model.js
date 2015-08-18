@@ -18,8 +18,24 @@ var RoomSchema = new schema ({
     createdUser: {
         type: schema.ObjectId,
         ref: 'User'
-    }
-
+    },
+    privacyDesignation: {
+        type: String,
+        enum: ['public','private'],
+        required: 'Private or Public must be selected.'
+    },
+    members: [{
+        member: {
+            type: schema.ObjectId,
+            ref: 'User'
+        },
+        created: {
+            type: Date,
+            default: Date.now
+        }
+    }]
 });
+
+RoomSchema.set('toJson', { getters: true, virtuals: true });
 
 mongoose.model('Room', RoomSchema);

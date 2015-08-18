@@ -19,6 +19,11 @@
             <small data-ng-bind="room.created | date:'medium'"></small>
             <small>/</small>
             <small data-ng-bind="room.createdUser.firstName"></small>
+            <small>/</small>
+            <small data-ng-bind="room.privacyDesignation"></small>
+            <small>/</small>
+<!--            <small data-ng-bind="room.members[0]._id"></small>
+            <small>/</small>-->
             <a data-ng-href="#!/rooms/{{room._id}}">edit</a>
         </li>
     </ul>

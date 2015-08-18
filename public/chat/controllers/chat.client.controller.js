@@ -5,7 +5,7 @@ angular.module('chat').controller('ChatController', ['$scope', 'Socket',
     function($scope, Socket){
         $scope.messages = [];
         Socket.on('chatMessage', function(message){
-            if(message.roomname === $scope.roomname) {
+            if(message.roomname === $scope.room.roomname) {
                 $scope.messages.push(message);
             }
         });

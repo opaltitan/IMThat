@@ -17,7 +17,38 @@
             </div>
         </div>
         <div>
+            <label for="privacyDesignation">Public/Private</label>
+            <div>
+                <!--<input type="text" data-ng-model="privacyDesignation" id="privacyDesignation" required>-->
+                <select data-ng-model="room.privacyDesignation" id="privacyDesignation" required>
+                    <option value="private">Private</option>
+                    <option value="public">Public</option>
+                </select>
+            </div>
+        </div>
+        <ul>
+            <li data-ng-repeat="member in room.members">
+                <small data-ng-bind="member.firstName"></small>
+                <small>/</small>
+                <small data-ng-bind="member._id"></small>
+                <small>/</small>
+                <small data-ng-bind="member.created"></small>
+            </li>
+        </ul>
+        <div>
+            <label for="member_new">Add Member:</label>
+            <div>
+                <select data-ng-model="room.member_new" id="member_new" ng-options="u.username for u in users track by u._id">
+                </select>
+            </div>
+        </div>
+        <br/>
+        <div>
             <input type="submit" value="Update">
+        </div>
+        <br/>
+        <div>
+            <a href="/#!/rooms/">Return</a>
         </div>
         <div data-ng-show="error">
             <strong data-ng-bind="error"></strong>

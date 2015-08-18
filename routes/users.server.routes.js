@@ -15,5 +15,6 @@ module.exports = function(app) {
             failureRedirect: '/signin',
             failureFlash: true
         }));
-    app.get('/signout', users.signout);
+    app.get('/signout', users.signout)
+    app.get('/api/users', users.list);
 };
