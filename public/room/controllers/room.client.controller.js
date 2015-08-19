@@ -5,6 +5,7 @@ angular.module('rooms').controller('RoomController', ['$scope', '$routeParams', 
     function($scope, $routeParams, $location, Authentication, Rooms, Socket, Users){
         $scope.authentication = Authentication;
         $scope.users = Users.query();
+        $scope.visible = false;
 
         $scope.create = function(){
             var room = new Rooms({

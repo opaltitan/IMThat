@@ -7,24 +7,32 @@
 <body>
 
 <section data-ng-controller="RoomController" data-ng-init="find()">
-    <h1>Rooms</h1>
-    <div>
-        <a href="/#!/rooms/create">Create Room</a>
+    <h1>Available Rooms</h1>
+    <div class="create">
+        <a href="/#!/rooms/create">(...or create new Room)</a>
     </div>
     <br>
     <ul>
-        <li data-ng-repeat="room in rooms">
-            <a data-ng-href="#!/rooms/{{room._id}}/chat" data-ng-bind="room.roomname"></a>
-            <br>
-            <small data-ng-bind="room.created | date:'medium'"></small>
-            <small>/</small>
-            <small data-ng-bind="room.createdUser.firstName"></small>
-            <small>/</small>
-            <small data-ng-bind="room.privacyDesignation"></small>
-            <small>/</small>
-<!--            <small data-ng-bind="room.members[0]._id"></small>
-            <small>/</small>-->
-            <a data-ng-href="#!/rooms/{{room._id}}">edit</a>
+        <li data-ng-repeat="room in rooms" ng-mouseenter="visible=true" ng-mouseleave="visible=false" class="rooms_list">
+            <div class="room_link">
+                <a data-ng-href="#!/rooms/{{room._id}}/chat" data-ng-bind="room.roomname" class="room_link"></a>
+            </div>
+            <div class="room_info room_privacy" ng-if="visible">
+                <small class="label">Privacy Designation: </small>
+                <small class="field" data-ng-bind="room.privacyDesignation"></small>
+            </div>
+            <div class="room_info room_edit" ng-if="visible">
+                <a data-ng-href="#!/rooms/{{room._id}}">edit</a>
+            </div>
+            <!--<br>-->
+            <div class="room_info room_meta" ng-if="visible">
+                <div class="room_individual">
+                    <small class="label">Created: </small>
+                    <small class="field" data-ng-bind="room.created | date:'medium'"></small>
+                    <small class="label">Room Creator: </small>
+                    <small class="field" data-ng-bind="room.createdUser.firstName"></small>
+                </div>
+            </div>
         </li>
     </ul>
     <div data-ng-hide="!rooms || rooms.length">

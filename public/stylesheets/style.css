@@ -6,7 +6,16 @@ body {
 a {
   color: #00b7ff;
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
-  padding-right: 30px;
+  text-decoration: none;
+}
+h1 {
+  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-bottom: 10px;
+  display: inline-block;
+  min-width: 200px;
+}
+.create {
+  display: inline-block;
 }
 span,
 p,
@@ -19,4 +28,377 @@ h3 {
 input {
   background-color: #777;
   color: inherit;
+}
+ul {
+  list-style-type: none;
+  text-indent: 0px;
+  list-style-position: none;
+  padding-left: 0px;
+  max-width: 50%;
+  margin-right: 50%;
+}
+.label {
+  color: #999;
+}
+.field {
+  color: #00d6b2;
+}
+ul > li {
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+ul > li:hover {
+  background-color: #666;
+}
+ul > li > div {
+  display: inline-block;
+}
+ul > li > .room_link {
+  width: 200px;
+  display: inline-block;
+  vertical-align: middle;
+}
+ul > li > .room_meta {
+  min-width: 200px;
+  display: inline-block;
+  vertical-align: middle;
+}
+ul > li > .room_individual {
+  display: inline-block;
+}
+ul > li > .room_privacy {
+  min-width: 160px;
+  display: inline-block;
+  vertical-align: middle;
+}
+ul > li > .room_edit {
+  min-width: 50px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.room_info.ng-enter {
+  animation: 0.35s target-enter;
+}
+.room_info.ng-leave {
+  animation: 0.35s target-leave;
+}
+.rooms_list.ng-enter {
+  animation: 1.5s item-enter;
+}
+.rooms_list.ng-leave {
+  animation: 1.5s item-leave;
+}
+.rooms_list.ng-move {
+  animation: 1.5s item-move;
+}
+@-moz-keyframes target-enter {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes target-enter {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes target-enter {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes target-enter {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes target-enter {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes target-leave {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes target-leave {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@-o-keyframes target-leave {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@-ms-keyframes target-leave {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes target-leave {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes item-enter {
+  0% {
+    max-height: 0;
+    left: -300px;
+    opacity: 0;
+  }
+
+  50% {
+    max-height: 40px;
+    left: -300px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 40px;
+    left: 0px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes item-enter {
+  0% {
+    max-height: 0;
+    left: -300px;
+    opacity: 0;
+  }
+
+  50% {
+    max-height: 40px;
+    left: -300px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 40px;
+    left: 0px;
+    opacity: 1;
+  }
+}
+@-o-keyframes item-enter {
+  0% {
+    max-height: 0;
+    left: -300px;
+    opacity: 0;
+  }
+
+  50% {
+    max-height: 40px;
+    left: -300px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 40px;
+    left: 0px;
+    opacity: 1;
+  }
+}
+@-ms-keyframes item-enter {
+  0% {
+    max-height: 0;
+    left: -300px;
+    opacity: 0;
+  }
+
+  50% {
+    max-height: 40px;
+    left: -300px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 40px;
+    left: 0px;
+    opacity: 1;
+  }
+}
+@keyframes item-enter {
+  0% {
+    max-height: 0;
+    left: -300px;
+    opacity: 0;
+  }
+
+  50% {
+    max-height: 40px;
+    left: -300px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 40px;
+    left: 0px;
+    opacity: 1;
+  }
+}
+@-moz-keyframes item-leave {
+  0% {
+    left: 0px;
+    max-height: 40px;
+  }
+
+  50% {
+    left: -300px;
+    max-height: 40px;
+  }
+
+  100% {
+    left: -300px;
+    max-height: 0px;
+  }
+}
+@-webkit-keyframes item-leave {
+  0% {
+    left: 0px;
+    max-height: 40px;
+  }
+
+  50% {
+    left: -300px;
+    max-height: 40px;
+  }
+
+  100% {
+    left: -300px;
+    max-height: 0px;
+  }
+}
+@-o-keyframes item-leave {
+  0% {
+    left: 0px;
+    max-height: 40px;
+  }
+
+  50% {
+    left: -300px;
+    max-height: 40px;
+  }
+
+  100% {
+    left: -300px;
+    max-height: 0px;
+  }
+}
+@-ms-keyframes item-leave {
+  0% {
+    left: 0px;
+    max-height: 40px;
+  }
+
+  50% {
+    left: -300px;
+    max-height: 40px;
+  }
+
+  100% {
+    left: -300px;
+    max-height: 0px;
+  }
+}
+@keyframes item-leave {
+  0% {
+    left: 0px;
+    max-height: 40px;
+  }
+
+  50% {
+    left: -300px;
+    max-height: 40px;
+  }
+
+  100% {
+    left: -300px;
+    max-height: 0px;
+  }
+}
+@-moz-keyframes item-move {
+  0% {
+    max-height: 0px;
+  }
+
+  100% {
+    max-height: 40px;
+  }
+}
+@-webkit-keyframes item-move {
+  0% {
+    max-height: 0px;
+  }
+
+  100% {
+    max-height: 40px;
+  }
+}
+@-o-keyframes item-move {
+  0% {
+    max-height: 0px;
+  }
+
+  100% {
+    max-height: 40px;
+  }
+}
+@-ms-keyframes item-move {
+  0% {
+    max-height: 0px;
+  }
+
+  100% {
+    max-height: 40px;
+  }
+}
+@keyframes item-move {
+  0% {
+    max-height: 0px;
+  }
+
+  100% {
+    max-height: 40px;
+  }
 }
