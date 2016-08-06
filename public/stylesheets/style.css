@@ -81,7 +81,7 @@ ul > li > .room_edit {
   animation: 0.35s target-enter;
 }
 .room_info.ng-leave {
-  animation: 0.35s target-leave;
+  animation: 0.2s target-leave;
 }
 .rooms_list.ng-enter {
   animation: 1.5s item-enter;

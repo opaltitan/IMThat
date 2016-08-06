@@ -23,7 +23,7 @@ var getErrorMessage = function(err){
     return message;
 };
 
-
+// Creates a new 'room', and responds with the created room data as JSON.
 exports.create = function(req, res){
     var room = new Room(req.body);
     room.createdUser = req.user;
@@ -39,14 +39,15 @@ exports.create = function(req, res){
     });
 };
 
+// Lists all rooms that are either "public" rooms, or rooms for which the user either created or is a member of
 exports.list = function(req, res) {
     var reqUser = req.user;
 
     Room.find()
         .or([{ privacyDesignation: 'public'}, { 'members._id': reqUser }, { createdUser: reqUser}])
         .sort('-created')
+        .populate('members._id')
         .populate('createdUser', 'firstName lastName')
-        //.populate('members._id', 'firstName lastName')
         .exec(function(err, rooms){
         if(err) {
             return res.status(400).send({
@@ -58,6 +59,7 @@ exports.list = function(req, res) {
     });
 };
 
+// Returns all room data for the passed room 'id'
 exports.roomById = function(req, res, next, id) {
     Room.findById(id)
         .populate('createdUser', 'firstName lastName')
@@ -70,10 +72,12 @@ exports.roomById = function(req, res, next, id) {
     });
 };
 
+// Responds with the room data as JSON
 exports.read = function(req, res) {
     res.json(req.room);
 };
 
+// Updates the room data from the client
 exports.update = function(req, res) {
     var room = req.room;
     room.roomname = req.body.roomname;
@@ -90,6 +94,7 @@ exports.update = function(req, res) {
     });
 };
 
+// Deletes the passed room
 exports.delete = function(req, res){
   var room = req.room;
     room.remove(function(err){

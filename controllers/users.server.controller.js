@@ -3,6 +3,7 @@
  */
 var User = require('mongoose').model('User'),
     passport = require('passport');
+
 var getErrorMessage = function(err){
     var message = '';
     if(err.code){
@@ -22,6 +23,7 @@ var getErrorMessage = function(err){
     return message;
 };
 
+// Renders the sign-in page variables if the user is not authenticated.
 exports.renderSignin = function(req, res, next){
     if(!req.user){
         res.render('signin',{
@@ -33,6 +35,7 @@ exports.renderSignin = function(req, res, next){
     }
 };
 
+// Renders the sign-up page variables if the user is not authenticated.
 exports.renderSignUp = function(req, res, next){
     if(!req.user){
         res.render('signup', {
@@ -44,7 +47,7 @@ exports.renderSignUp = function(req, res, next){
     }
 };
 
-
+// Creates a new user
 exports.signup = function(req, res, next){
     if(!req.user){
         var user = new User(req.body);
@@ -66,13 +69,13 @@ exports.signup = function(req, res, next){
     }
 };
 
+// Signs out the user
 exports.signout = function(req, res){
     req.logout();
     res.redirect('/');
 };
 
-
-
+// Lists all users
 exports.list = function(req, res, next){
     User.find({}, 'username email', function(err, users){
         if(err){
@@ -93,11 +96,12 @@ exports.list = function(req, res, next){
  }
  });
  };*/
-
+// Responds with users data as JSON
 exports.read = function(req, res) {
     res.json(req.user);
 };
 
+// Finds the specific user from the id
 exports.userByID = function(req, res, next, id) {
     User.findOne({
         _id: id
@@ -111,6 +115,7 @@ exports.userByID = function(req, res, next, id) {
     });
 };
 
+// Updates the data for the specified user.
 exports.update = function(req, res, next) {
     User.findByIdAndUpdate(req.user.id, req.body, function(err, user){
         if(err){
@@ -121,6 +126,7 @@ exports.update = function(req, res, next) {
     });
 };
 
+// Deletes the specified user.
 exports.delete = function(req, res, next) {
     req.user.remove(function(err){
         if(err){
@@ -131,6 +137,7 @@ exports.delete = function(req, res, next) {
     });
 };
 
+// Validation that the user is authenticated.
 exports.requiresLogin = function(req, res, next){
     if(!req.isAuthenticated()){
         return res.status(401).send({

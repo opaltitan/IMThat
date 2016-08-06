@@ -7,6 +7,7 @@ var config = require('./config'),
     passport = require('passport');
 
 module.exports = function(server, io, mongoStore){
+    // Using the session cookies, verify that the user is authenticated
     io.use(function(socket, next){
         cookieParser(config.sessionSecret)(socket.request, {}, function(err){
             var sessionId = socket.request.signedCookies['connect.sid'];

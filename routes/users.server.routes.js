@@ -9,12 +9,16 @@ module.exports = function(app) {
         .get(users.renderSignUp)
         .post(users.signup);
     app.route('/signin')
+        // On 'get' request, renders the 'sign-in' variables
         .get(users.renderSignin)
+        // On 'post' request, "posts" a new session for the user.
         .post(passport.authenticate('local', {
             successRedirect: '/',
             failureRedirect: '/signin',
             failureFlash: true
         }));
-    app.get('/signout', users.signout)
+    // On 'get' request, sign out the user.
+    app.get('/signout', users.signout);
+    // On 'get' request, returns an array of all users.
     app.get('/api/users', users.list);
 };

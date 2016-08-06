@@ -9,30 +9,31 @@
     <script type="text/javascript">
       window.user = <%- user %>;
     </script>
+    <!-- Add Socket.IO library -->
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-
+    <!-- Add Angular and Angular-Animate -->
     <script type="text/javascript" src="/lib/angular/angular.js"></script>
     <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
     <script type="text/javascript" src="/lib/angular-animate/angular-animate.js"></script>
-
+    <!-- Add the home screen files -->
     <script type="text/javascript" src="/home/home.client.module.js"></script>
     <script type="text/javascript" src="/home/controllers/home.client.controller.js"></script>
     <script type="text/javascript" src="/home/config/home.client.routes.js"></script>
-
+    <!-- Add the user authentication files -->
     <script type="text/javascript" src="/users/users.client.module.js"></script>
     <script type="text/javascript" src="/users/services/authentication.client.service.js"></script>
-
+    <!-- Add the "chat" files -->
     <script type="text/javascript" src="/chat/chat.client.module.js"></script>
     <script type="text/javascript" src="/chat/services/socket.client.service.js"></script>
     <script type="text/javascript" src="/chat/controllers/chat.client.controller.js"></script>
     <script type="text/javascript" src="/chat/config/chat.client.routes.js"></script>
-
+    <!-- Add the "room" files -->
     <script type="text/javascript" src="/room/room.client.module.js"></script>
     <script type="text/javascript" src="/room/services/room.client.service.js"></script>
     <script type="text/javascript" src="/room/controllers/room.client.controller.js"></script>
     <script type="text/javascript" src="/room/config/room.client.routes.js"></script>
-
+    <!-- Add the main application.js file that specifies all modules -->
     <script type="text/javascript" src="/application.js"></script>
 
   </body>

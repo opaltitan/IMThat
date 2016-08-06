@@ -28,9 +28,9 @@
         </div>
         <ul>
             <li data-ng-repeat="member in room.members">
-                <small data-ng-bind="member.firstName"></small>
-                <small>/</small>
                 <small data-ng-bind="member._id"></small>
+                <small>/</small>
+                <small data-ng-bind="member._id.user.firstName"></small>
                 <small>/</small>
                 <small data-ng-bind="member.created"></small>
             </li>
